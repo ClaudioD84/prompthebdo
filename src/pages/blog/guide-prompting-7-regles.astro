@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Le guide du prompting : 7 règles pour des résultats 10x meilleurs";
+const description = "Rôle, contexte, contraintes, itération... Les 7 techniques qui transforment tes prompts de basiques à professionnels.";
+const date = "2026-04-11";
+const tag = "Prompts";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>La différence entre un résultat IA médiocre et un résultat exceptionnel ? Le prompt. Pas l'outil, pas le modèle — le prompt. Voici les 7 règles qui vont transformer ta façon d'interagir avec l'IA.</p>
+
+        <h2>Règle #1 : Assigne un rôle</h2>
+        <p>Commence toujours ton prompt par « Agis en tant que... ». Un rôle précis cadre la réponse et oriente le ton, le vocabulaire et le niveau de détail.</p>
+        <p><strong>Exemple :</strong> « Agis en tant que copywriter spécialisé en e-commerce B2C » produit un résultat radicalement différent de « Écris-moi un texte de vente ».</p>
+
+        <h2>Règle #2 : Donne du contexte</h2>
+        <p>L'IA ne connaît pas ta situation. Plus tu donnes de contexte, plus la réponse sera pertinente. Décris ton entreprise, ton audience, tes objectifs.</p>
+        <p><strong>Exemple :</strong> « Mon entreprise vend des cosmétiques bio en ligne. Notre audience est composée de femmes 25-45 ans, soucieuses de l'environnement. »</p>
+
+        <h2>Règle #3 : Sois spécifique dans ta demande</h2>
+        <p>« Écris un article » est vague. « Écris un article de 800 mots sur les bienfaits du thé vert pour la peau, avec 5 sous-titres et un ton décontracté » est précis. La précision est la clé.</p>
+
+        <h2>Règle #4 : Définis le format de sortie</h2>
+        <p>Tu veux une liste à puces ? Un tableau ? Un e-mail ? Un script vidéo ? Dis-le explicitement. L'IA peut produire dans n'importe quel format — encore faut-il le demander.</p>
+        <p><strong>Exemple :</strong> « Présente les résultats sous forme de tableau avec 3 colonnes : Outil, Prix, Note sur 5. »</p>
+
+        <h2>Règle #5 : Donne des exemples</h2>
+        <p>Le « few-shot prompting » consiste à montrer un ou deux exemples du résultat attendu. C'est l'une des techniques les plus puissantes pour obtenir exactement ce que tu veux.</p>
+        <p><strong>Exemple :</strong> « Voici le style que je veux : 'Fini les tableurs qui prennent la poussière — cet outil transforme tes données en décisions en 30 secondes.' »</p>
+
+        <h2>Règle #6 : Ajoute des contraintes</h2>
+        <p>Les contraintes éliminent le superflu. Limite la longueur, le ton, les sujets à éviter, le vocabulaire technique, etc.</p>
+        <p><strong>Exemple :</strong> « Maximum 150 mots. Pas de jargon technique. Ton conversationnel, comme si tu parlais à un ami. »</p>
+
+        <h2>Règle #7 : Itère et affine</h2>
+        <p>Un bon prompt se construit en 2-3 itérations. Le premier résultat n'est jamais parfait — et c'est normal. Demande des ajustements : « Rends ça plus concis », « Ajoute plus d'exemples », « Change le ton pour quelque chose de plus professionnel ».</p>
+
+        <h2>Le template universel</h2>
+        <p>Voici la structure que nous utilisons pour tous nos prompts chez Prompt Hebdo :</p>
+        <p><strong>Rôle :</strong> Agis en tant que [rôle précis]<br/>
+        <strong>Contexte :</strong> [situation, entreprise, audience]<br/>
+        <strong>Tâche :</strong> [ce que tu veux, en détail]<br/>
+        <strong>Format :</strong> [structure de la réponse attendue]<br/>
+        <strong>Contraintes :</strong> [limites et conditions]<br/>
+        <strong>Exemple :</strong> [si possible, un modèle de ce que tu attends]</p>
+
+        <p>Applique ces 7 règles dès ton prochain prompt et tu verras une différence immédiate dans la qualité des résultats.</p>
+
+        <div class="article-cta">
+          <h3>Tu veux aller plus loin ?</h3>
+          <p>Télécharge notre Guide du Prompting gratuit avec 20 prompts professionnels prêts à l'emploi.</p>
+          <a href="/#produits" class="btn-primary">Télécharger le guide gratuit →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>

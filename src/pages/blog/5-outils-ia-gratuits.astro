@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "5 outils IA gratuits qui vont changer ta façon de travailler";
+const description = "Claude, Perplexity, Gamma, Notion AI, ElevenLabs — on a testé les meilleurs outils IA gratuits de 2026.";
+const date = "2026-04-08";
+const tag = "Outils";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>L'IA n'est plus réservée aux développeurs ou aux entreprises avec de gros budgets. En 2026, il existe des dizaines d'outils gratuits (ou avec un plan gratuit généreux) qui peuvent transformer ta façon de travailler au quotidien.</p>
+        <p>On a testé des dizaines d'outils ces dernières semaines. Voici les 5 qui ont réellement changé notre productivité — avec un verdict honnête pour chacun.</p>
+
+        <h2>1. Claude (Anthropic) — L'assistant IA polyvalent</h2>
+        <p><strong>Ce qu'il fait :</strong> Rédaction, analyse, code, résumé, brainstorming... Claude est un assistant conversationnel capable de gérer des tâches complexes avec un niveau de nuance impressionnant.</p>
+        <p><strong>Pourquoi on l'aime :</strong> Sa capacité à comprendre le contexte long (jusqu'à 200k tokens) le rend idéal pour analyser des documents entiers, rédiger des rapports détaillés ou coder des projets complets.</p>
+        <p><strong>Plan gratuit :</strong> Accès limité mais suffisant pour tester. Le plan Pro à 20$/mois offre un usage intensif.</p>
+        <p><strong>Verdict :</strong> ⭐⭐⭐⭐⭐ — Notre outil principal au quotidien.</p>
+
+        <h2>2. Perplexity — La recherche augmentée par l'IA</h2>
+        <p><strong>Ce qu'il fait :</strong> Moteur de recherche qui combine IA et sources web en temps réel. Tu poses une question, il te donne une réponse synthétique avec les sources.</p>
+        <p><strong>Pourquoi on l'aime :</strong> Fini les 10 onglets ouverts pour trouver une info. Perplexity fait la synthèse pour toi avec des citations vérifiables.</p>
+        <p><strong>Plan gratuit :</strong> 5 recherches "Pro" par jour + recherches basiques illimitées.</p>
+        <p><strong>Verdict :</strong> ⭐⭐⭐⭐ — Indispensable pour la veille et la recherche rapide.</p>
+
+        <h2>3. Gamma — Des présentations en 2 minutes</h2>
+        <p><strong>Ce qu'il fait :</strong> Génère des présentations, documents et pages web à partir d'un simple prompt ou d'un plan.</p>
+        <p><strong>Pourquoi on l'aime :</strong> Le design est automatique et professionnel. Tu te concentres sur le contenu, Gamma s'occupe du reste.</p>
+        <p><strong>Plan gratuit :</strong> 400 crédits offerts (environ 10-15 présentations complètes).</p>
+        <p><strong>Verdict :</strong> ⭐⭐⭐⭐ — Parfait pour des slides rapides. Moins flexible pour du design très personnalisé.</p>
+
+        <h2>4. Notion AI — L'IA intégrée à ton espace de travail</h2>
+        <p><strong>Ce qu'il fait :</strong> Résume tes notes, génère du contenu, traduit, améliore ton écriture — directement dans Notion.</p>
+        <p><strong>Pourquoi on l'aime :</strong> L'intégration native est un game-changer. Pas besoin de copier-coller entre outils. L'IA travaille là où tu travailles déjà.</p>
+        <p><strong>Plan gratuit :</strong> Inclus dans le plan gratuit de Notion avec un nombre limité de requêtes.</p>
+        <p><strong>Verdict :</strong> ⭐⭐⭐⭐ — Génial si tu utilises déjà Notion. Moins utile sinon.</p>
+
+        <h2>5. ElevenLabs — La voix IA la plus réaliste</h2>
+        <p><strong>Ce qu'il fait :</strong> Synthèse vocale ultra-réaliste, clonage de voix, doublage multilingue.</p>
+        <p><strong>Pourquoi on l'aime :</strong> La qualité des voix est bluffante. Idéal pour créer des voix-off, des podcasts ou du contenu audio sans micro.</p>
+        <p><strong>Plan gratuit :</strong> 10 000 caractères/mois (environ 10 minutes d'audio).</p>
+        <p><strong>Verdict :</strong> ⭐⭐⭐⭐ — Le meilleur outil de text-to-speech du marché.</p>
+
+        <h2>En résumé</h2>
+        <p>Ces 5 outils couvrent l'essentiel des besoins : rédaction, recherche, présentation, organisation et audio. Le plus impressionnant ? Tu peux commencer à les utiliser gratuitement dès maintenant.</p>
+        <p>La clé, c'est de ne pas essayer de tout maîtriser d'un coup. Choisis un outil, intègre-le dans ta routine pendant une semaine, puis passe au suivant.</p>
+
+        <div class="article-cta">
+          <h3>Tu veux recevoir ce type de contenu chaque semaine ?</h3>
+          <p>Rejoins Prompt Hebdo — c'est gratuit, et tu recevras chaque semaine des prompts, outils et tutoriels IA actionnables.</p>
+          <a href="/#inscription" class="btn-primary">S'inscrire gratuitement →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
