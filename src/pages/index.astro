@@ -16,11 +16,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="hero-cta" id="inscription">
         <div class="signup-box">
           <p class="signup-label">Rejoins les lecteurs de Prompt Hebdo :</p>
-          <!-- BEEHIIV EMBED : remplace cette div par le code d'embed Beehiiv -->
-          <div class="signup-placeholder">
-            <input type="email" placeholder="ton@email.com" class="signup-input" />
-            <button class="btn-primary">S'inscrire gratuitement</button>
-          </div>
+          <form class="signup-placeholder" action="https://magic.beehiiv.com/v1/7b5351f8-902f-413c-b08b-9b85530a096e" method="get">
+            <input type="email" name="email" placeholder="ton@email.com" class="signup-input" required />
+            <button type="submit" class="btn-primary">S'inscrire gratuitement</button>
+          </form>
           <p class="signup-hint">Gratuit. Pas de spam. Désinscription en 1 clic.</p>
         </div>
       </div>
