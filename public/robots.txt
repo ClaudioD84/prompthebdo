@@ -1,6 +1,0 @@
-# https://www.prompthebdo.fr/robots.txt
-
-User-agent: *
-Allow: /
-
-Sitemap: https://www.prompthebdo.fr/sitemap-index.xml
