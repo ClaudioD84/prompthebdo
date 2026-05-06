@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Le secret des prompts qui marchent : la méthode RICE";
+const description = "4 lettres à mémoriser pour transformer tes résultats avec Claude, ChatGPT ou Mistral. Le template à recopier + la routine d'itération en 3 cycles.";
+const date = "2026-05-04";
+const tag = "Méthode";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>Tu as testé ChatGPT ou Claude, tu as posé une question, tu as reçu une réponse correcte mais pas vraiment utile. Tu t'es dit : « bon, l'IA c'est sympa mais ça ne révolutionne pas mon boulot ». Le problème n'est pas l'outil. Le problème, c'est le prompt.</p>
+        <p>Un prompt à une ligne te donne une réponse à une ligne. Un prompt structuré te donne un livrable. Voici la méthode qui change tout : <strong>RICE</strong>.</p>
+
+        <h2>Pourquoi un prompt à 1 ligne ne marche pas</h2>
+        <p>Quand tu balances « écris-moi un email de prospection », l'IA n'a pas le choix : elle te sort la moyenne statistique de tous les emails de prospection qu'elle a vus. Ton email ressemblera à ceux que tu reçois dans ton spam. Logique.</p>
+        <p>L'IA n'est pas un humain qui devine. C'est un système qui prédit le mot suivant en se basant sur ce que tu lui donnes. Plus ton input est précis, plus son output l'est. C'est aussi simple que ça.</p>
+
+        <h2>La méthode RICE en détail</h2>
+        <p>4 lettres, 4 sections. Tu mets les 4 dans ton prompt, et la qualité de la réponse change radicalement.</p>
+
+        <h2>R — Rôle</h2>
+        <p>Tu dis à l'IA quelle expertise elle doit endosser. Pas « écris-moi un texte », mais « tu es un copywriter SaaS B2B avec 10 ans d'expérience ». Le rôle conditionne le vocabulaire, le ton, les références implicites.</p>
+
+        <h2>I — Instructions</h2>
+        <p>L'action précise + le livrable attendu. Pas « parle-moi de marketing », mais « rédige 3 versions d'objet d'email à froid, 60 caractères max chacun ». Si tu peux mesurer le livrable (nombre, format, longueur), fais-le.</p>
+
+        <h2>C — Contexte</h2>
+        <p>Tout ce qu'il faut savoir pour faire le boulot. Persona ciblée, contraintes, ce qui a déjà été essayé, ce qu'il faut éviter. 3 à 5 lignes suffisent. Sans contexte, l'IA invente des hypothèses qui ne correspondent pas à ta réalité.</p>
+
+        <h2>E — Exemples</h2>
+        <p>2 exemples courts de ce que tu attends. C'est la partie que la plupart des gens zappent et c'est dommage : 2 exemples calibrent l'IA mieux que 10 lignes de description abstraite. Si tu n'as pas d'exemple parfait, donne un exemple « presque ça » et précise ce qu'il faut changer.</p>
+
+        <h2>Le template à recopier</h2>
+        <p>Sauvegarde ce template, colle-le dans ton outil préféré, remplis les crochets :</p>
+<pre><code>Rôle : tu es [profil de l'expert·e qui doit répondre]
+Instructions : ta tâche est de [action précise + livrable attendu]
+Contexte : voici ce qu'il faut savoir avant de commencer
+[contexte clé en 3-5 lignes]
+Exemples : voici 2 exemples de ce que j'attends
+1. [exemple court]
+2. [exemple court]
+
+Démarre maintenant.</code></pre>
+
+        <h2>Cas d'usage : email de prospection</h2>
+        <p>Voici ce que ça donne sur un cas réel. Le prompt :</p>
+<pre><code>Rôle : tu es un copywriter SaaS B2B avec 10 ans d'expérience.
+Instructions : rédige 3 versions d'objet d'email à froid pour pitcher notre outil de gestion de notes de frais à des CFO de PME.
+Contexte : on cible des CFO de PME 20-200 personnes en France. Le tunnel actuel a un taux d'ouverture de 12 %. Le bénéfice principal : 80 % de temps gagné sur le traitement mensuel.
+Exemples :
+1. "Sophie, 3 minutes et tu sais si on bosse ensemble"
+2. "La question que ton DAF n'osera pas te poser"
+
+Démarre maintenant.</code></pre>
+        <p>Tu obtiens 3 objets travaillés, dans le bon registre, alignés avec le bénéfice clé. Tu choisis, tu A/B testes, tu avances.</p>
+
+        <h2>La routine d'itération en 3 cycles</h2>
+        <p>Un prompt parfait n'existe pas du premier coup. Voici la routine qui marche à tous les coups :</p>
+        <p><strong>Cycle 1</strong> — tu envoies ton RICE et tu lis la réponse en entier (sans skim).</p>
+        <p><strong>Cycle 2</strong> — tu réponds simplement « refais en plus court » ou « refais avec un ton plus direct, moins corporate ». Tu n'as pas besoin de retaper tout le contexte, l'IA s'en souvient.</p>
+        <p><strong>Cycle 3</strong> — tu donnes un exemple précis de ce que tu n'aimes pas. Genre : « la tournure "il est important de noter que" me sort par les yeux, supprime ce type de phrase partout ».</p>
+        <p>90 % du temps, le cycle 3 te donne ce que tu voulais. Si tu es encore loin au cycle 3, c'est que ton RICE est trop flou — retourne à l'étape 1 et précise le rôle ou le contexte.</p>
+
+        <h2>En résumé</h2>
+        <p>RICE, c'est 4 lettres et 30 secondes de plus à taper. En échange, tu passes d'une réponse moyenne à un livrable utilisable. Tu vas l'utiliser sur tes 3 prochains prompts cette semaine, et tu sentiras la différence dès le premier.</p>
+        <p>La règle simple à retenir : si la réponse de l'IA te déçoit, ce n'est pas l'IA qui est mauvaise, c'est ton prompt qui manque de R, de I, de C ou de E.</p>
+
+        <div class="article-cta">
+          <h3>Tu veux 20 prompts construits sur ce modèle ?</h3>
+          <p>Le Guide du Prompting reprend cette méthode et te donne 20 prompts prêts à recopier (rédaction, marketing, productivité, analyse). C'est gratuit.</p>
+          <a href="https://dellutri.gumroad.com/l/sdfjrz" class="btn-primary">Télécharger le guide gratuit →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-body pre {
+    background: var(--gray-100, #f3f4f6); border-radius: 8px; padding: 1rem;
+    overflow-x: auto; margin: 1rem 0; font-size: 0.9rem; line-height: 1.5;
+  }
+  .article-body code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
