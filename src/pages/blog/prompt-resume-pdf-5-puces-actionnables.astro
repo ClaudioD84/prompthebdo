@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Le prompt qui résume un PDF en 5 puces actionnables";
+const description = "Un prompt court à coller dans Claude pour transformer n'importe quel PDF en 5 idées + 5 actions concrètes à faire cette semaine.";
+const date = "2026-05-07";
+const tag = "Prompts";
+
+function formatDate(dateStr) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>Tu as un PDF de 40 pages à lire pour une réunion dans deux heures. Ou un article long que tu as bookmarké il y a trois semaines et que tu n'as toujours pas ouvert. Ou un rapport sectoriel qui te fait peur dès la table des matières.</p>
+        <p>Le réflexe : tu ouvres ChatGPT ou Claude, tu colles le texte, tu tapes "résume". Tu reçois un résumé propre, structuré, et inutile. Parce qu'un résumé ne te dit pas quoi <em>faire</em>.</p>
+        <p>Voici le prompt que j'utilise tous les matins. Il transforme n'importe quel document long en 5 idées clés + 5 actions concrètes à faire dans les 7 jours.</p>
+
+        <h2>Le prompt à recopier</h2>
+        <p>Charge ton PDF dans Claude (l'upload est gratuit dans la version web) ou colle le texte d'un long article. Puis envoie ça :</p>
+        <pre><code>Lis ce PDF en entier. Ensuite, donne-moi :
+
+1. Le message principal en 1 phrase
+2. Les 5 idées clés (1 ligne chacune)
+3. Pour chaque idée, 1 action concrète que je peux faire dans les 7 jours
+4. Le passage qui m'a le plus de chances d'avoir manqué — et pourquoi c'est important
+5. Une question critique à poser sur ce que dit l'auteur
+
+Tonalité : factuel, direct, sans jargon.</code></pre>
+
+        <h2>Pourquoi ce prompt marche</h2>
+        <p><strong>Tu ne demandes pas un résumé.</strong> Claude sait déjà résumer un texte ; ça n'apporte rien. Tu demandes un résumé <strong>utile pour décider quoi faire</strong>, ce qui est très différent.</p>
+        <p><strong>Le bloc 3 t'oblige à passer à l'action.</strong> Au lieu de garder l'info dans un coin de ta tête (où elle disparaîtra dans 48 heures), tu repars avec 5 actions calibrées pour ta semaine.</p>
+        <p><strong>Le bloc 4 te sauve d'un faux confort.</strong> Quand tu lis en diagonale, tu rates systématiquement le passage le plus contre-intuitif — celui qui aurait dû changer ton avis. Cette ligne du prompt force le modèle à le pointer.</p>
+        <p><strong>Le bloc 5 te garde critique.</strong> Tu ne sors pas convaincu par défaut. Tu sors avec une question qui te fait creuser plus loin si le sujet en vaut la peine.</p>
+
+        <h2>Sur quoi ça marche aussi</h2>
+        <p>Le prompt est calibré pour des PDF, mais il fonctionne tel quel sur :</p>
+        <p>— Un long article de blog que tu copies-colles dans le chat.<br/>
+        — Un thread Twitter ou LinkedIn récupéré avec un outil comme Glasp.<br/>
+        — La transcription d'une vidéo YouTube (clic droit sur la vidéo → "Afficher la transcription" → copier).<br/>
+        — Un compte rendu de réunion ou un rapport interne (attention aux infos sensibles : utilise un compte pro).</p>
+
+        <h2>Le piège à éviter</h2>
+        <p>Ne demande pas tout le travail à l'IA. Le prompt te livre 5 actions, mais c'est à toi de choisir laquelle prioriser. L'IA te sert le plat — toi seul·e sait si tu as faim ou pas.</p>
+        <p>Conseil pratique : quand tu reçois la réponse, garde uniquement <strong>1 action sur les 5</strong> et mets-la dans ta to-do du jour. Le reste, tu archives. Une action faite vaut mieux que 5 actions notées.</p>
+
+        <div class="article-cta">
+          <h3>Tu veux 20 prompts comme celui-là ?</h3>
+          <p>Le Guide du Prompting est gratuit. 20 prompts construits sur la même logique, prêts à coller dans Claude ou ChatGPT.</p>
+          <a href="https://dellutri.gumroad.com/l/sdfjrz" class="btn-primary">Télécharger le guide (gratuit) →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-body em { font-style: italic; }
+  .article-body pre {
+    background: var(--gray-100, #f3f4f6); padding: 1rem 1.2rem; border-radius: 8px;
+    overflow-x: auto; margin-bottom: 1.2rem; border: 1px solid var(--gray-200, #e5e7eb);
+  }
+  .article-body pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem; color: var(--gray-900); white-space: pre-wrap;
+  }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
