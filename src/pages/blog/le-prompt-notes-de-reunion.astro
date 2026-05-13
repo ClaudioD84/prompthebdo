@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Le prompt qui rend tes notes de réunion utiles";
+const description = "Transforme n'importe quelle transcription en 3 comptes-rendus prêts à envoyer — pour l'équipe, pour ton boss, pour toi. 25 minutes économisées par réunion.";
+const date = "2026-05-14";
+const tag = "Productivité";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>4 réunions par semaine. 25 minutes de compte-rendu chacune. Ça fait 1h40 par semaine à rédiger des notes que tout le monde va lire en diagonale. Ce prompt règle ça une bonne fois pour toutes.</p>
+
+        <h2>📊 Cette semaine en IA</h2>
+        <p><strong>OpenAI sort GPT-5.5 Instant, son nouveau modèle ChatGPT par défaut.</strong> La nouveauté principale : les hallucinations chutent drastiquement dans les domaines sensibles — droit, médecine, finance. ChatGPT va faire moins d'erreurs de fond sur les sujets où ça compte vraiment.</p>
+        <p><strong>76 % des grandes entreprises ont maintenant un Chief AI Officer.</strong> C'était 26 % en 2025, selon le rapport IBM publié cette semaine. L'IA s'installe au comité de direction comme un poste à part entière — pas une tendance, une infrastructure.</p>
+
+        <h2>🎯 Le prompt — Compte-rendu de réunion en 3 versions</h2>
+        <p>La méthode : tu enregistres ta réunion avec ton téléphone ou Zoom. Tu récupères la transcription automatique (Zoom la génère nativement, sinon utilise l'application Otter.ai ou le micro de ton iPhone). Tu colles ça dans Claude :</p>
+        <pre><code>Voici la transcription d'une réunion d'1h. Sors-moi 3 versions du compte-rendu :
+
+VERSION 1 — Pour l'équipe (5 lignes max)
+- Décisions prises
+- Actions assignées (qui / quoi / quand)
+
+VERSION 2 — Pour mon boss (3 lignes max)
+- Statut + 1 risque + 1 demande
+
+VERSION 3 — Pour moi (notes brutes)
+- Tous les points soulevés, par thème
+- Les questions ouvertes
+- Ce que je dois préparer pour la prochaine fois</code></pre>
+        <p>Ce que Claude sort en retour : trois blocs de texte utilisables immédiatement. Tu copie-colles la VERSION 1 dans le fil Slack de l'équipe, la VERSION 2 dans ton email à ton manager, et tu gardes la VERSION 3 dans ta Notion ou ton carnet.</p>
+
+        <p><strong>Économie réelle mesurée :</strong> 25 minutes par réunion. Sur 4 réunions par semaine, tu rentres chez toi 1h40 plus tôt — ou tu utilises ce temps pour quelque chose qui compte vraiment.</p>
+
+        <p><strong>Pas de transcription auto ?</strong> Pas de problème. Ouvre Claude dans ton navigateur, glisse ton fichier audio directement dans le chat. Claude transcrit et applique le prompt en un seul aller. Ça marche avec les enregistrements iPhone, les exports Zoom (.vtt), les fichiers MP3.</p>
+
+        <div class="article-cta">
+          <h3>49 autres prompts du même calibre</h3>
+          <p>Si ce prompt t'a été utile, le Pack 50 Prompts Pro contient une catégorie entière dédiée à la productivité bureau : réunions, reporting, prises de notes, briefs, comptes-rendus. 9 € pour 50 prompts testés et affinés.</p>
+          <a href="https://byclaudio.gumroad.com/l/lkzjp" class="btn-primary">Voir le Pack 50 Prompts Pro →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-body pre {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 1.2rem 1.5rem; margin: 1.2rem 0; overflow-x: auto;
+  }
+  .article-body code { font-size: 0.9rem; line-height: 1.7; color: #1e293b; font-family: 'Courier New', monospace; }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
