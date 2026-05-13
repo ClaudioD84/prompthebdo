@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Comment je traite 100 emails en 20 minutes avec Claude";
+const description = "Un prompt, deux créneaux par jour, zéro retard. La méthode 4 buckets pour dompter ta boîte mail avec l'IA.";
+const date = "2026-05-11";
+const tag = "Productivité";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>Avant d'aller plus loin : non, il ne s'agit pas d'un plugin magique ou d'un abonnement hors de prix. Juste un prompt. Et 20 minutes de focus, deux fois par jour.</p>
+
+        <h2>🛠️ L'outil — Claude + ta boîte mail</h2>
+        <p>Pas besoin d'API, pas besoin de Zapier. Tu copies tes emails dans Claude. Ça prend 90 secondes par session et ça te change la semaine.</p>
+        <p>Pourquoi Claude plutôt que l'assistant intégré de Gmail ou Outlook ? Parce que tu gardes la main. Microsoft Copilot et Google Gemini voient et apprennent de tout ce qui passe dans ta boîte. Avec Claude, tu choisis exactement ce que tu lui montres — et tu restes décideur sur chaque réponse.</p>
+        <p><strong>Verdict :</strong> idéal pour l'écriture, l'analyse de contenu et la prise de décision structurée. C'est exactement ce dont tu as besoin pour dompter ton inbox.</p>
+
+        <h2>🎯 Le prompt — Le tri 4 buckets</h2>
+        <p>Copie 20 à 30 emails dans Claude (objet + expéditeur + 2 premières lignes du corps). Puis envoie ça :</p>
+        <pre><code>Voici 20 emails. Range chacun dans un de ces 4 buckets :
+
+1. RÉPONDRE MAINTENANT (urgent + de moi)
+2. RÉPONDRE PLUS TARD (important mais &lt; 3 jours)
+3. DÉLÉGUER OU ARCHIVER (info, pas d'action)
+4. IGNORER (newsletter, notif, spam)
+
+Format de sortie : un tableau avec 3 colonnes
+| # | Bucket | Justification (10 mots max) |
+
+À la fin, propose-moi un brouillon de réponse pour les 3 emails du bucket 1.</code></pre>
+        <p>Ce prompt fait deux choses en même temps : il <strong>trie</strong> et il <strong>rédige</strong>. En une session de 20 minutes, tu sors avec ta priorité claire et les réponses urgentes déjà draftées.</p>
+
+        <h2>⚡ Le setup en 4 étapes</h2>
+        <p><strong>Étape 1 :</strong> Crée un libellé Gmail "À traiter" (ou un dossier Outlook équivalent) et glisse-y tous les emails non urgents quand ils arrivent. Ne réponds pas en temps réel.</p>
+        <p><strong>Étape 2 :</strong> Bloque deux créneaux dans ton agenda : 10h et 16h. 20 minutes chacun, pas plus. Désactive les notifs entre les deux.</p>
+        <p><strong>Étape 3 :</strong> Tu ouvres Claude, tu colles les 20-30 premiers emails du libellé, tu envoies le prompt ci-dessus.</p>
+        <p><strong>Étape 4 :</strong> Tu traites les buckets 1 et 2 (urgents et importants), tu archives le reste. C'est fini jusqu'au prochain créneau.</p>
+        <p><strong>Bonus :</strong> la même méthode marche pour les DM Slack. Copie les fils non lus en début de journée et demande à Claude de lister les actions à prendre, par fil.</p>
+
+        <h2>📊 L'actu IA de la semaine</h2>
+        <p><strong>Google engage jusqu'à 40 milliards dans Anthropic.</strong> L'accord inclut 5 gigawatts de capacité de calcul via Google Cloud sur 5 ans. L'IA n'est plus une startup story — c'est une infrastructure d'État.</p>
+        <p><strong>OpenAI sort GPT-5.5 Instant.</strong> Le nouveau modèle par défaut se positionne comme un agent proactif capable d'enchaîner des tâches complexes avec peu d'instructions. La guerre des agents vient de monter d'un cran.</p>
+        <p><strong>47,8 % des actifs français utilisent déjà l'IA générative.</strong> Selon le rapport AI Diffusion publié cette semaine, la France est 5e mondiale. Ce chiffre était à 20 % il y a un an.</p>
+
+        <div class="article-cta">
+          <h3>50 prompts prêts à l'emploi pour ta productivité</h3>
+          <p>Le pack contient 8 prompts dédiés à la productivité bureau : réunions, reporting, prises de notes, briefs, comptes-rendus... 9 € pour 50 prompts testés et affinés.</p>
+          <a href="https://dellutri.gumroad.com/l/lkzjp" class="btn-primary">Voir le Pack 50 Prompts Pro →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-body pre {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 1.2rem 1.5rem; margin: 1.2rem 0; overflow-x: auto;
+  }
+  .article-body code { font-size: 0.9rem; line-height: 1.7; color: #1e293b; font-family: 'Courier New', monospace; }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
