@@ -1,0 +1,115 @@
+---
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "5 prompts qui ont sauvé ma copy (et qui valent leur poids en euros)";
+const description = "Claude vs ChatGPT pour la copy, le prompt HPP pour LinkedIn et un tuto en 3 étapes pour des emails à froid qui répondent enfin.";
+const date = "2026-05-18";
+const tag = "Copywriting";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>J'ai passé les 7 derniers jours à tester Claude et ChatGPT sur des vrais projets de rédaction : emails de prospection, posts LinkedIn, pages de vente. Ce que j'ai trouvé va changer ta façon de bosser dès aujourd'hui.</p>
+
+        <h2>🛠️ Claude vs ChatGPT pour la copy — le battle test honnête</h2>
+        <p><strong>Claude gagne</strong> sur la structure, la nuance et les textes longs. Argumentaire complet, email détaillé, page de vente ? Claude.</p>
+        <p><strong>ChatGPT gagne</strong> sur le côté punchy et les accroches courtes. Les 3 premières lignes d'un post, un objet d'email qui claque, une tagline ? ChatGPT.</p>
+        <p><strong>Ma recommandation :</strong> Claude pour drafter (80% du boulot), ChatGPT pour retoucher les 2-3 phrases qui manquent de mordant. Et en finition : <a href="https://hemingwayapp.com" target="_blank">Hemingway Editor</a> (gratuit) pour vérifier la lisibilité.</p>
+
+        <h2>🎯 Le prompt prêt à l'emploi — Hook + Pain + Promise (HPP)</h2>
+        <p>La structure HPP est simple : accroche → douleur racontée → solution concrète. Elle marche sur LinkedIn, en email, sur une page de vente.</p>
+        <pre><code>Tu es un copywriter LinkedIn B2B avec 10 ans d'expérience.
+
+Voici mon idée de post : [3-5 lignes décrivant le sujet]
+Voici mon audience : [persona en 1 ligne]
+Voici l'action que je veux : [commenter / DM / lien clic]
+
+Écris-moi 3 versions de post selon la structure HPP :
+HOOK (1 ligne, maximum 70 caractères, qui force à cliquer voir plus)
+PAIN (3 lignes : la douleur que vit mon audience, racontée comme un mini-récit)
+PROMISE (3 lignes : la solution + l'action concrète à faire)
+
+Pour chaque version, varie le HOOK :
+1. Question directe
+2. Stat/contre-intuitif
+3. Mini-anecdote en 1 ligne</code></pre>
+        <p>Ce prompt te donne 3 versions à comparer en 30 secondes. Il marche aussi pour Twitter/X, les emails et les pages de vente.</p>
+
+        <h2>⚡ Chaîner 3 prompts pour un email à froid qui répond</h2>
+        <p>Le vrai problème des emails à froid, c'est qu'ils ressemblent à des emails à froid. Voilà comment chaîner 3 prompts pour tout changer :</p>
+        <p><strong>Prompt 1 — Recherche :</strong><br/>
+        « Voici l'URL LinkedIn de [contact] et le site web de sa boîte. Liste-moi en 5 puces ce qui pourrait l'intéresser à propos de [mon produit]. »</p>
+        <p><strong>Prompt 2 — Personnalisation :</strong><br/>
+        « Reprends le 3e point + écris une phrase d'ouverture personnalisée qui le mentionne sans flagornerie. »</p>
+        <p><strong>Prompt 3 — Email final :</strong><br/>
+        « Combine ça avec mon template d'email standard [coller le template]. Sors la version finale. »</p>
+        <p>Résultat concret : le taux de réponse double. Mesuré sur 40 prospects.</p>
+
+        <h2>📊 L'actu IA de la semaine</h2>
+        <ul>
+          <li><strong>Mistral lance Workflows</strong> — une couche d'orchestration pour structurer les pipelines IA en production avec observabilité intégrée.</li>
+          <li><strong>GPT-5.5 Instant</strong> devient le modèle par défaut de ChatGPT — plus rapide, déployé progressivement.</li>
+          <li><strong>EU AI Act</strong> — les obligations sur les systèmes IA à haut risque entrent en vigueur le 2 août 2026. À anticiper si tu livres des outils IA.</li>
+        </ul>
+
+        <div class="article-cta">
+          <h3>12 prompts copywriting + 38 autres pour ton activité</h3>
+          <p>Le Pack 50 Prompts Pro contient une catégorie « Copywriting & Vente » complète : email à froid, page de vente, fiche produit, objection handling. 9 € pour tout ça.</p>
+          <a href="https://byclaudio.gumroad.com/l/lkzjp" class="btn-primary">Voir le Pack 50 Prompts Pro (9 €) →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.article { padding: 3rem 1.5rem; }
+.article-inner { max-width: 700px; margin: 0 auto; }
+.article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.article-tag {
+  display: inline-block; background: var(--blue-light); color: var(--blue);
+  padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+}
+.article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+.article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+.article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+.article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+.article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+.article-body strong { color: var(--gray-900); }
+.article-body pre {
+  background: #f8fafc; border: 1px solid var(--gray-200); border-radius: 8px;
+  padding: 1.2rem; overflow-x: auto; margin: 1rem 0;
+}
+.article-body pre code { font-size: 0.88rem; line-height: 1.6; color: var(--gray-700); }
+.article-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+.article-body li { color: var(--gray-700); line-height: 1.8; margin-bottom: 0.4rem; }
+.article-cta {
+  margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+  border-radius: var(--radius); text-align: center;
+}
+.article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+.article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+.btn-primary {
+  display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+  border-radius: 8px; font-weight: 600; transition: background 0.2s;
+}
+.btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+@media (max-width: 768px) {
+  .article h1 { font-size: 1.6rem; }
+}
+</style>
