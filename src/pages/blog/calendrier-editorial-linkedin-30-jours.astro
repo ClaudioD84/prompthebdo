@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Le calendrier éditorial LinkedIn de 30 jours en 1 prompt";
+const description = "Un prompt pour générer 30 idées de posts LinkedIn structurées, avec hooks et formats — prêt à coller dans Notion et à utiliser chaque matin.";
+const date = "2026-05-21";
+const tag = "Création de contenu";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${title} — Prompt Hebdo`} description={description}>
+  <article class="article">
+    <div class="article-inner">
+      <div class="article-meta">
+        <span class="article-tag">{tag}</span>
+        <time>{formatDate(date)}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="article-intro">{description}</p>
+
+      <div class="article-body">
+        <p>La page blanche du lundi matin. Tu sais que tu devrais publier sur LinkedIn, mais tu n'as aucune idée de quoi dire. Ce prompt règle ça une bonne fois pour toutes — 30 jours de contenu, planifiés en une session de 5 minutes.</p>
+
+        <h2>📊 Cette semaine en IA</h2>
+        <p><strong>Google I/O 2026 : Gemini Spark arrive le 25 mai.</strong> Google a présenté son agent personnel 24h/24 lors de sa conférence annuelle. Gemini Spark gère ta vie numérique à ta place : résumé de ta journée dès le matin, agenda automatisé, infos personnalisées. L'app Gemini dépasse désormais 900 millions d'utilisateurs actifs. Le mot de toute la conférence : agents.</p>
+        <p><strong>Meta licencie 8 000 personnes et double la mise sur l'IA.</strong> Le 19 mai, Meta a déclenché la première vague de ses licenciements — 10 % des effectifs mondiaux, plus 6 000 postes vacants supprimés dans la foulée. Le signal est clair pour les créateurs et freelances : maîtriser les outils IA n'est plus un avantage concurrentiel, c'est une condition de survie.</p>
+
+        <h2>🎯 Le prompt — 30 idées de posts LinkedIn en 1 shot</h2>
+        <p>La méthode : tu remplis les trois variables (ton persona, ton profil en 3 lignes, tes 3 piliers de contenu) et tu envoies le prompt dans Claude. En moins de 30 secondes, tu reçois un tableau Markdown complet avec 30 jours de posts planifiés.</p>
+        <pre><code>Tu es un strategist LinkedIn qui aide les [persona : ex. consultants en marketing] à grandir leur audience.
+
+Voici mon profil : [3 lignes : qui je suis, ce que je vends, à qui]
+Voici mes 3 piliers de contenu : [pilier 1, 2, 3]
+
+Génère-moi un calendrier éditorial de 30 jours (5 posts par semaine x 4 semaines = 20 posts utiles + 10 jours repos ou repost).
+
+Pour chaque post :
+- Jour de la semaine
+- Pilier (1, 2 ou 3)
+- Format (story personnelle / liste / contre-intuitif / question / carrousel)
+- Sujet précis (1 ligne)
+- Hook proposé (1 ligne, max 70 caractères)
+
+Sors le tout en tableau Markdown.</code></pre>
+        <p>Tu colles le tableau dans Notion. Ensuite, chaque matin, tu n'as plus qu'une chose à demander à Claude : « écris-moi le post du jour ». Le contexte est déjà là — pilier, format, sujet, hook — et Claude produit un post complet en 10 secondes.</p>
+
+        <p><strong>Un exemple de ligne de tableau typique :</strong> Lundi — Pilier 2 (expertise) — Format liste — Sujet : « Les 3 erreurs que font 90 % des consultants sur LinkedIn » — Hook : « 9 consultants sur 10 font cette erreur. »</p>
+
+        <p><strong>Variante :</strong> si tu veux des posts encore plus personnalisés, ajoute après le prompt : « Pour les posts de type story personnelle, propose-moi un mini-récit réel que je pourrais avoir vécu en tant que [rôle]. » Claude adapte alors les hooks à ta biographie professionnelle.</p>
+
+        <div class="article-cta">
+          <h3>49 autres prompts pour créateurs et freelances</h3>
+          <p>Si tu vis du contenu, le Pack 50 Prompts Pro contient une catégorie entière dédiée au copywriting et à la vente : hooks, emails à froid, pages de vente, newsletters. Il se rentabilise au premier post qui décolle.</p>
+          <a href="https://byclaudio.gumroad.com/l/lkzjp" class="btn-primary">Voir le Pack 50 Prompts Pro →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 1.5rem; }
+  .article-inner { max-width: 700px; margin: 0 auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .article-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+  }
+  .article-meta time { font-size: 0.85rem; color: var(--gray-400); }
+  .article h1 { font-size: 2.2rem; line-height: 1.2; color: var(--gray-900); margin-bottom: 1rem; }
+  .article-intro { font-size: 1.1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200); }
+  .article-body h2 { font-size: 1.4rem; color: var(--gray-900); margin: 2rem 0 0.8rem; }
+  .article-body p { color: var(--gray-700); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+  .article-body strong { color: var(--gray-900); }
+  .article-body pre {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 1.2rem 1.5rem; margin: 1.2rem 0; overflow-x: auto;
+  }
+  .article-body code { font-size: 0.9rem; line-height: 1.7; color: #1e293b; font-family: 'Courier New', monospace; }
+  .article-cta {
+    margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f0f5ff, #f3e8ff);
+    border-radius: var(--radius); text-align: center;
+  }
+  .article-cta h3 { font-size: 1.2rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .article-cta p { color: var(--gray-600); margin-bottom: 1rem; }
+  .btn-primary {
+    display: inline-block; background: var(--blue); color: #fff; padding: 0.7rem 1.5rem;
+    border-radius: 8px; font-weight: 600; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e40af; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article h1 { font-size: 1.6rem; }
+  }
+</style>
